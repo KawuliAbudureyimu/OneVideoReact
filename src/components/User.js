@@ -1,14 +1,21 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 class User extends Component {
+    
+    onDeleteClick(id,e) {
+    const { deleteUser } =this.props
 
+    deleteUser(id)
+      
+    }
     render() {
+        const {id , name ,email } =this.props
         return (
             <tr>
-                <td>1</td>
-                <td>salim</td>
-                <td>salim@ss.com</td>
-                <td><button className="btn btn-danger">Delate</button></td>
+                <td>{id}</td>
+                <td>{name}</td>
+                <td>{email}</td>
+                <td><button onClick={this.onDeleteClick.bind(this,id)}  className="btn btn-danger">Delate</button></td>
             </tr>
         );
     }
